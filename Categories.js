@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 
 const items = [
@@ -22,7 +22,6 @@ const Categories = ({foodType,setFoodType}) => {
   return (
     <View
       style={{
-        marginTop: 5,
         backgroundColor: "#fff",
         paddingVertical: 10,
         paddingLeft: 20,
@@ -62,9 +61,7 @@ const Categories = ({foodType,setFoodType}) => {
             </TouchableOpacity>
           </View>
         ))}
-      </ScrollView>
-      
-      <Text style={{ fontSize: 13, fontWeight: "900" }}>{foodType}</Text>
+      </ScrollView>      
     </View>
   );
 };

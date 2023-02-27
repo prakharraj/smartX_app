@@ -1,6 +1,6 @@
 import { View, Image, Text } from 'react-native';
 
-const TopBanner = () => {
+const TopBanner = ({username}) => {
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
@@ -11,6 +11,7 @@ const TopBanner = () => {
       </View>
       <View style={styles.textContainer}>
         <Text style={styles.title}>SmartX Living</Text>
+        <Text style={{ fontWeight: 'bold', fontSize: 12,  marginLeft:50,  alignContent:"flex-end",}}>{username}</Text>
       </View>
     </View>
   );
@@ -36,11 +37,13 @@ const styles = {
   },
   textContainer: {
     flex: 1,
-    justifyContent: 'center'
+    flexDirection: "row",
+    
   },
   title: {
     fontWeight: 'bold',
-    fontSize: 16
+    fontSize: 16,
+    alignSelf: 'flex-end'
   }
 };
 
