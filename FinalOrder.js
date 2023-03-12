@@ -173,8 +173,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#f7d679",
     color: "black",
     borderRadius: 10,
-    paddingVertical: 10,
+    paddingVertical: 8,
     paddingHorizontal: 12,
+    paddingLeft: 10,
+    marginBottom: 5
   },
   text: {
     fontSize: 16,

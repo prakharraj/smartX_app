@@ -103,7 +103,7 @@ export default function Home({navigation, route}) {
         <Divider width={8} />      
       </View>
       <Text style={styles.titleText}>
-            No.             Name                                   Point
+            No.             Name                                     Points
           </Text>
           <Divider width={2} /> 
        <ScrollView> 
@@ -126,6 +126,7 @@ export default function Home({navigation, route}) {
             };
            
             console.log("FinalOrder building----");
+            points=0;
             foodData.forEach((food) => {
               if (food.bCount > 0) {
                 foodOrder.breakfast.push({id:food.id, name: food.name, point: food.points, count: food.bCount });
@@ -207,5 +208,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: 0.25,
     backgroundColor: "#b8b6b4",
+    marginBottom: 6,
   },
 });

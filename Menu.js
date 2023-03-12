@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Text,
   View,
@@ -6,38 +5,25 @@ import {
   ScrollView,
   StyleSheet,
 } from "react-native";
-import { Divider, ListItem } from "react-native-elements";
-
-
+import { Divider} from "react-native-elements";
 
 const Menu = ({ foodType, setFoodType, foodData, setFoodData}) => {
 
   let currentCategory="Breakfast";
+  let obj = foodData;
   function handleChange(e, operation, foodType) {
-    let obj = [];
-    foodData.forEach((val) => {
-     
-      if (e.id === val.id && foodType == 'Breakfast') {
-        val.bCount = operation === "minus" ? (val.bCount>0? val.bCount - 1:val.bCount) : val.bCount + 1;
+    //console.log(JSON.stringify(e));
+    if (foodType == 'Breakfast') {
+        obj[e.id-1].bCount = operation === "minus" ? (obj[e.id-1].bCount>0? obj[e.id-1].bCount -= 1:obj[e.id-1].bCount) : obj[e.id-1].bCount += 1;
       }
-      if (e.id === val.id && foodType == 'Lunch') {
-        val.lCount = operation === "minus" ?(val.lCount>0? val.lCount - 1:val.lCount) : val.lCount + 1;
+      else if (foodType == 'Lunch') {
+        obj[e.id-1].lCount = operation === "minus" ?(obj[e.id-1].lCount>0? obj[e.id-1].lCount -= 1:obj[e.id-1].lCount) : obj[e.id-1].lCount += 1;
       }
-      if (e.id === val.id && foodType == 'Dinner') {
-        val.dCount = operation === "minus" ? (val.dCount>0? val.dCount - 1:val.dCount) : val.dCount + 1;
+      else if (foodType == 'Dinner') {
+        obj[e.id-1].dCount = operation === "minus" ? (obj[e.id-1].dCount>0? obj[e.id-1].dCount -= 1:obj[e.id-1].dCount) : obj[e.id-1].dCount += 1;
       }
-      
-      obj.push({
-        id: val.id,
-        name: val.name,
-        points: val.points,
-        bCount: val.bCount,
-        lCount: val.lCount,
-        dCount: val.dCount,
-        category: val.category,
-      });
-    });
-    setFoodData(obj);
+     //console.log(JSON.stringify(obj));
+    setFoodData([...obj]);
   }
 
   return (
@@ -102,6 +88,7 @@ const styles = StyleSheet.create({
     paddingVertical: 1,
     paddingHorizontal: 6,
     paddingStart: 13,
+    setOpacityTo: 0,
   },
   text: {
     fontSize: 16,
@@ -111,10 +98,11 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 15,
-    lineHeight: 21,
+    lineHeight: 28,
     fontWeight: "bold",
-    letterSpacing: 0.25,
+    letterSpacing: 0.50,
     backgroundColor: "#b8b6b4",
+    
   },
   itemText: {
     marginTop: 4,

@@ -45,6 +45,7 @@ const Categories = ({foodType,setFoodType}) => {
                 flexDirection: "row",
                 justifyContent: "flex-start",
                 alignItems: "center",
+                shadowColor: "grey",
               }}
             >
               <Image
